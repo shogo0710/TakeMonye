@@ -35,8 +35,7 @@ public class MapGenerator : MonoBehaviour
             mapcount++;
             firstpos.x += 23.04f * mapcount;    //23.04はプレファブの横の長さ
             secondpos.x += 23.04f * mapcount;
-            tripos.x += 23.04f * mapcount;
-            Debug.Log(firstpos);
+            tripos.x += 23.04f * mapcount;            
             GameObject tuika = Instantiate(undermapPre, firstpos, transform.rotation) as GameObject;
             GameObject tuika2 = Instantiate(middlemapPre, secondpos, transform.rotation) as GameObject;
             GameObject tuika3 = Instantiate(topmapPre, tripos, transform.rotation) as GameObject;

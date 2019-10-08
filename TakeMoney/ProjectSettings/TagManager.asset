@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ONE
+  - FIVE
+  - TEN
+  - FIVE_TEN
+  - HYAKU
+  - FIVE_HYAKU
+  - RED
+  - BLUE
+  - GREEN
+  - PURPLE
   layers:
   - Default
   - TransparentFX
