@@ -39,7 +39,7 @@ public class MapGenerator : MonoBehaviour
             GameObject tuika = Instantiate(undermapPre, firstpos, transform.rotation) as GameObject;
             GameObject tuika2 = Instantiate(middlemapPre, secondpos, transform.rotation) as GameObject;
             GameObject tuika3 = Instantiate(topmapPre, tripos, transform.rotation) as GameObject;
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 }

@@ -15,6 +15,7 @@ public class ItemGenerator : MonoBehaviour
     public GameObject purplePre;
     public GameObject greenPre;
     GameObject player;
+    float itemgenespeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,11 @@ public class ItemGenerator : MonoBehaviour
         while (true)
         {
             TopGenerator();
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.8f * itemgenespeed);
             TopGenerator();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f * itemgenespeed);
             TopGenerator();
-            yield return new WaitForSeconds(0.7f);            
+            yield return new WaitForSeconds(0.7f * itemgenespeed);            
         }
     }
 
@@ -49,13 +50,13 @@ public class ItemGenerator : MonoBehaviour
         while (true)
         {
             MiddleGenerator();
-            yield return new WaitForSeconds(0.9f);
+            yield return new WaitForSeconds(0.9f * itemgenespeed);
             MiddleGenerator();
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.2f * itemgenespeed);
             MiddleGenerator();
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.6f * itemgenespeed);
             MiddleGenerator();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f * itemgenespeed);
             
         }
     }
@@ -65,22 +66,22 @@ public class ItemGenerator : MonoBehaviour
         while (true)
         {
             UnderGenerator();
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.7f * itemgenespeed);
             UnderGenerator();
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.7f * itemgenespeed);
             UnderGenerator();
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.2f * itemgenespeed);
             UnderGenerator();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f * itemgenespeed);
             UnderGenerator();
-            yield return new WaitForSeconds(0.9f);
+            yield return new WaitForSeconds(0.9f * itemgenespeed);
         }
     }
 
     void TopGenerator()
     {
         Vector3 topPos = player.transform.position;
-        topPos.x += 15.0f;
+        topPos.x += 20.0f;
         topPos.y = -2.3f;
         int dice = Random.Range(1, 19);
         if (dice == 1)
@@ -132,7 +133,7 @@ public class ItemGenerator : MonoBehaviour
     void MiddleGenerator()
     {
         Vector3 topPos = player.transform.position;
-        topPos.x += 15.0f;
+        topPos.x += 20.0f;
         topPos.y = 0.7f;
         int dice = Random.Range(1, 16);
         if (dice == 1)
@@ -180,7 +181,7 @@ public class ItemGenerator : MonoBehaviour
     void UnderGenerator()
     {
         Vector3 topPos = player.transform.position;
-        topPos.x += 15.0f;
+        topPos.x += 20.0f;
         topPos.y = 3.9f;
         int dice = Random.Range(1, 21);
         if (1 <= dice && dice < 3)
@@ -223,5 +224,10 @@ public class ItemGenerator : MonoBehaviour
         {
             //何も産まない
         }
+    }
+    
+    public void UpItemGenerator()
+    {
+        itemgenespeed -= 0.05f;
     }
 }

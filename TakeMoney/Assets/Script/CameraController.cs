@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    float a = 0;
+    float rialspeed = 0;
+    float prespeed = 7.66f;
+    GameObject dire;
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.dire = GameObject.Find("Director");
     }
 
     // Update is called once per frame
     void Update()
     {
-        a += 7.66f * Time.deltaTime;
-        transform.position = new Vector3(a, 0, -10);
         
+        rialspeed += prespeed * Time.deltaTime;
+        transform.position = new Vector3(rialspeed, 0, -10);       
+    }
+
+    public void UpPrespeed()
+    {
+        prespeed += 1.0f;
     }
 }

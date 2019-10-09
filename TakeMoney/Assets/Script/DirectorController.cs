@@ -6,12 +6,19 @@ using UnityEngine.UI;
 public class DirectorController : MonoBehaviour
 {
     GameObject moneycount;
+    GameObject came;
+    GameObject thisunitytyan;
+    GameObject itemgene;
     int premoney = 0;
     int summoney = 0;
+    public float speed = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
         this.moneycount = GameObject.Find("MoneyCount");
+        this.came = GameObject.Find("Main Camera");
+        this.thisunitytyan = GameObject.Find("Unitytyan");
+        this.itemgene = GameObject.Find("ItemGenerator");
     }
 
     // Update is called once per frame
@@ -36,5 +43,15 @@ public class DirectorController : MonoBehaviour
             case 8: premoney += 500; break;
             case 9: premoney /= 2; break;
         }                        
+    }
+
+    //ボタンをクリックすると速度が上がる
+    public void SpeedUp()
+    {
+        speed += 1.0f;
+        Debug.Log(speed);
+        this.came.GetComponent<CameraController>().UpPrespeed();
+        this.thisunitytyan.GetComponent<MoveUnitytyan>().UpUnitytyanspeed();
+        this.itemgene.GetComponent<ItemGenerator>().UpItemGenerator();
     }
 }

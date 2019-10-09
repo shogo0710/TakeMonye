@@ -16,4 +16,9 @@ public class ItemDestroy : MonoBehaviour
     {
         Destroy(gameObject, time);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(gameObject);
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveUnitytyan : MonoBehaviour
 {
     GameObject director;
+    float unitytyanspeed = 7.66f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class MoveUnitytyan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(7.66f * Time.deltaTime, 0, 0);
+        transform.Translate(unitytyanspeed * Time.deltaTime, 0, 0);
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.Translate(0.0f, -2.99f, 0.0f);
@@ -45,14 +46,11 @@ public class MoveUnitytyan : MonoBehaviour
         else if (other.gameObject.tag == "PURPLE")
             this.director.GetComponent<DirectorController>().Countemyurator(8);
         else if (other.gameObject.tag == "GREEN")
-            this.director.GetComponent<DirectorController>().Countemyurator(9);
+            this.director.GetComponent<DirectorController>().Countemyurator(9);                
+    }
 
-        Destroy(other.gameObject);
-
-
-
-
-
-
+    public void UpUnitytyanspeed()
+    {
+        unitytyanspeed += 1.0f;
     }
 }
