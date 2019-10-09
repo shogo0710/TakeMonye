@@ -5,11 +5,15 @@ using UnityEngine;
 public class MoveUnitytyan : MonoBehaviour
 {
     GameObject director;
+    public AudioClip sound;
+    public AudioClip sound1;
+    AudioSource audioSource;
     float unitytyanspeed = 7.66f;
     // Start is called before the first frame update
     void Start()
     {
         this.director = GameObject.Find("Director");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,26 +24,39 @@ public class MoveUnitytyan : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "ONE")       
+
+        if (other.gameObject.tag == "ONE")
             this.director.GetComponent<DirectorController>().Countemyurator(0);
-        else if(other.gameObject.tag == "FIVE")        
-            this.director.GetComponent<DirectorController>().Countemyurator(1);        
+        else if (other.gameObject.tag == "FIVE")
+            this.director.GetComponent<DirectorController>().Countemyurator(1);
         else if (other.gameObject.tag == "TEN")
             this.director.GetComponent<DirectorController>().Countemyurator(2);
         else if (other.gameObject.tag == "FIVE_TEN")
             this.director.GetComponent<DirectorController>().Countemyurator(3);
         else if (other.gameObject.tag == "HYAKU")
+        {
             this.director.GetComponent<DirectorController>().Countemyurator(4);
+            this.audioSource.PlayOneShot(sound);
+        }
         else if (other.gameObject.tag == "FIVE_HYAKU")
+        {
             this.director.GetComponent<DirectorController>().Countemyurator(5);
+            this.audioSource.PlayOneShot(sound);
+        }
         else if (other.gameObject.tag == "RED")
             this.director.GetComponent<DirectorController>().Countemyurator(6);
         else if (other.gameObject.tag == "BLUE")
             this.director.GetComponent<DirectorController>().Countemyurator(7);
         else if (other.gameObject.tag == "PURPLE")
+        {
             this.director.GetComponent<DirectorController>().Countemyurator(8);
+            this.audioSource.PlayOneShot(sound1);
+        }
         else if (other.gameObject.tag == "GREEN")
-            this.director.GetComponent<DirectorController>().Countemyurator(9);                
+        {
+            this.director.GetComponent<DirectorController>().Countemyurator(9);
+            this.audioSource.PlayOneShot(sound1);
+        }
     }
 
     public void UpUnitytyanSpeedChange(int a)

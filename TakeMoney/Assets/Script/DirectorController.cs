@@ -9,6 +9,7 @@ public class DirectorController : MonoBehaviour
     GameObject came;
     GameObject thisunitytyan;
     GameObject itemgene;
+    GameObject bgm;
     int premoney = 0;
     int summoney = 0;
     public float speed = 0.0f;
@@ -20,13 +21,14 @@ public class DirectorController : MonoBehaviour
         this.came = GameObject.Find("Main Camera");
         this.thisunitytyan = GameObject.Find("Unitytyan");
         this.itemgene = GameObject.Find("ItemGenerator");
+        this.bgm = GameObject.Find("BGM");
     }
 
     // Update is called once per frame
     void Update()
     {
         moneycount.GetComponent<Text>().text =
-            this.premoney.ToString() + "円\n合計：" + this.summoney.ToString() + "円";
+            this.premoney.ToString() + "yen\nsum：" + this.summoney.ToString() + "yen";
     }
 
     public void Countemyurator(int a)
@@ -81,6 +83,7 @@ public class DirectorController : MonoBehaviour
             this.came.GetComponent<CameraController>().ChangePrespeed(1);
             this.thisunitytyan.GetComponent<MoveUnitytyan>().UpUnitytyanSpeedChange(1);
             this.itemgene.GetComponent<ItemGenerator>().ChangeItemGenerator(1);
+            this.bgm.GetComponent<BgmController>().PitchChange(1);
         }       
     }
 
@@ -95,6 +98,7 @@ public class DirectorController : MonoBehaviour
             this.came.GetComponent<CameraController>().ChangePrespeed(2);
             this.thisunitytyan.GetComponent<MoveUnitytyan>().UpUnitytyanSpeedChange(2);
             this.itemgene.GetComponent<ItemGenerator>().ChangeItemGenerator(2);
+            this.bgm.GetComponent<BgmController>().PitchChange(2);
         }
     }
 
