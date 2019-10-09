@@ -15,14 +15,7 @@ public class MoveUnitytyan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(unitytyanspeed * Time.deltaTime, 0, 0);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            transform.Translate(0.0f, -2.99f, 0.0f);
-        }else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            transform.Translate(0.0f, 2.99f, 0.0f);
-        }
+        transform.Translate(unitytyanspeed * Time.deltaTime, 0, 0);       
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -49,8 +42,32 @@ public class MoveUnitytyan : MonoBehaviour
             this.director.GetComponent<DirectorController>().Countemyurator(9);                
     }
 
-    public void UpUnitytyanspeed()
+    public void UpUnitytyanSpeedChange(int a)
     {
-        unitytyanspeed += 1.0f;
+        if (a == 1)
+        {
+            unitytyanspeed += 1.0f;
+        }else if (a == 2)
+        {
+            unitytyanspeed -= 1.0f;
+        }
+        
+    }
+
+    public void UnitytyanUp()
+    {
+        if (transform.position.y < 3.0f)
+        {
+            transform.Translate(0.0f, 2.99f, 0.0f);
+        }
+        
+    }
+
+    public void UnitytyanDown()
+    {
+        if (transform.position.y > -2.0f)
+        {
+            transform.Translate(0.0f, -2.99f, 0.0f);
+        }        
     }
 }

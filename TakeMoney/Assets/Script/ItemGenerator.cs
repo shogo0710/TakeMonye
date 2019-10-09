@@ -226,8 +226,15 @@ public class ItemGenerator : MonoBehaviour
         }
     }
     
-    public void UpItemGenerator()
+    public void ChangeItemGenerator(int a)
     {
-        itemgenespeed -= 0.05f;
+        if (a == 1)
+        {
+            itemgenespeed -= 0.05f;
+        }else if (a == 2)
+        {
+            itemgenespeed += 0.05f;
+        }
+        
     }
 }

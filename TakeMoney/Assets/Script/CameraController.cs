@@ -21,8 +21,15 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(rialspeed, 0, -10);       
     }
 
-    public void UpPrespeed()
+    public void ChangePrespeed(int a)
     {
-        prespeed += 1.0f;
+        if (a == 1)
+        {
+            prespeed += 1.0f;
+        }else if (a == 2)
+        {
+            prespeed -= 1.0f;
+        }
+        
     }
 }
